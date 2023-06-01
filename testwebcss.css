@@ -1,0 +1,42 @@
+body{
+	margin:30px 30px;
+	background-image:url("https://drive.google.com/file/d/1lSyhRwPnOc2yCJv-p2ZTLt3QGSgdQRV4/view?usp=drive_link");
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-attachment: fixed;
+}
+https://drive.google.com/file/d/1lSyhRwPnOc2yCJv-p2ZTLt3QGSgdQRV4/view?usp=drive_link
+h1,h3,p{  
+	color:lightblue;
+}
+
+.h{	
+	border:1px solid maroon;	
+}
+
+.quote{
+	color:gold;
+	font-style:italic;
+        font-size:20px;
+}
+
+a:link {
+ 	 color:gold; 
+ 	 text-decoration: none;
+}
+
+a:visited {
+ 	 color: green;
+  	text-decoration: none;
+}
+
+a:hover {
+ 	 color: red;
+ 	 text-decoration: underline;
+}
+
+a:active {
+ 	 color: yellow;
+  	text-decoration: underline;
+}
+
