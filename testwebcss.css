@@ -1,42 +1,68 @@
 body{
 	margin:30px 30px;
-	background-image:url("https://drive.google.com/uc?export=view&id=1lSyhRwPnOc2yCJv-p2ZTLt3QGSgdQRV4");
+	background-image:url("//drive.google.com/uc?export=view&id=1lSyhRwPnOc2yCJv-p2ZTLt3QGSgdQRV4");
 	background-repeat:no-repeat;
 	background-size:cover;
 	background-attachment: fixed;
+	position: relative;
+    min-height: 80vh;
+    background-color:dimgrey;
 }
-https://drive.google.com/file/d/1lSyhRwPnOc2yCJv-p2ZTLt3QGSgdQRV4/view?usp=drive_link
-h1,h3,p{  
-	color:lightblue;
+.heading{  
+	color:darkgrey;
+	max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;s
+    background-color: darkslategrey;
+    border: 1px solid #ccc;
+    border-radius: 20px
 }
 
 .h{	
 	border:1px solid maroon;	
 }
-
+.login{
+	text-align: center;
+}
 .quote{
-	color:gold;
+	color:white;
 	font-style:italic;
-        font-size:20px;
+    font-size:20px;
 }
 
-a:link {
+.lnk {
  	 color:gold; 
  	 text-decoration: none;
-}
-
-a:visited {
- 	 color: green;
-  	text-decoration: none;
+ 	 font-style:italic;
+ 	 font-size:20px;
 }
 
 a:hover {
  	 color: red;
  	 text-decoration: underline;
+ 	 font-style:;x
 }
-
-a:active {
- 	 color: yellow;
-  	text-decoration: underline;
+.guestbttn{
+	font:bolder;
+	font-size: 20px;
+	background-color: darkslategrey;
 }
+.guestbttn a{
+	color:darkgoldenrod;
+}
+.list li{
+	color:black;
+	font-size: 20px;
+	display:inline-block;
 
+}
+.list{
+	position: absolute;
+    bottom: 0;
+    width: 90%;
+    text-align: center; 
+
+}
+.list li a{
+	color:gold;
+}
