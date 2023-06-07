@@ -8,6 +8,10 @@ body{
     min-height: 80vh;
     background-color:dimgrey;
 }
+@media(max-width:768px){
+}
+@media(max-width:480px){
+}
 .heading{  
 	color:darkgrey;
 	max-width: 400px;
