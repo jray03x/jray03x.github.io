@@ -6,7 +6,7 @@ body{
 	background-attachment: fixed;
 	position: relative;
     min-height: 80vh;
-    background-color:dimgrey;
+    background-color:white;
 }
 @media(max-width:768px){
 }
@@ -17,7 +17,7 @@ body{
 	max-width: 400px;
     margin: 0 auto;
     padding: 20px;s
-    background-color: white;
+    background-color: darkgrey;
     border: 1px solid #ccc;
     border-radius: 20px
 }
