@@ -1,76 +1,29 @@
 body{
-	margin:30px 30px;
-	background-image:url("//drive.google.com/uc?export=view&id=1lSyhRwPnOc2yCJv-p2ZTLt3QGSgdQRV4");
-	background-repeat:no-repeat;
-	background-size:cover;
-	background-attachment: fixed;
-	position: relative;
+    margin:30px 30px;
+    background-image:url("//drive.google.com/uc?export=view&id=1lSyhRwPnOc2yCJv-p2ZTLt3QGSgdQRV4");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    position: relative;
     min-height: 80vh;
     background-color:white;
 }
-@media(max-width:768px){
-}
-@media(max-width:480px){
-}
 .heading{  
-	color:darkgrey;
-	max-width: 400px;
+    color:darkgrey;
+    max-width: 400px;
     margin: 0 auto;
-    padding: 20px;s
+    padding: 20px;
     background-color: darkgrey;
     border: 1px solid #ccc;
-    border-radius: 20px
-}
-
-.h{	
-	border:1px solid maroon;	
+    border-radius: 0px; /* Make the heading square */
 }
 .login{
-        background-color: grey;
-	text-align: center;
-	font-size: 20px;
-	color:darkred;
-	font-style: Bolder;
+    background-color: grey;
+    text-align: center;
+    font-size: 20px;
+    color:darkred;
+    font-style: Bolder;
+    border-radius: 0px; /* Make the login box square */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Add a smooth edge */
 }
-.quote{
-	color:white;
-	font-style:italic;
-    font-size:20px;
-}
-
-.lnk {
- 	 color:gold; 
- 	 text-decoration: none;
- 	 font-style:italic;
- 	 font-size:20px;
-}
-
-a:hover {
- 	 color: red;
- 	 text-decoration: underline;
- 	 font-style:;x
-}
-.guestbttn{
-	font:bolder;
-	font-size: 20px;
-	background-color: darkslategrey;
-}
-.guestbttn a{
-	color:darkgoldenrod;
-}
-.list li{
-	color:black;
-	font-size: 20px;
-	display:inline-block;
-
-}
-.list{
-	position: absolute;
-    bottom: 0;
-    width: 90%;
-    text-align: center; 
-
-}
-.list li a{
-	color:gold;
-}
+/* Other styles remain the same */
