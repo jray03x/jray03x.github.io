@@ -6,10 +6,10 @@ body{
     background-attachment: fixed;
     position: relative;
     min-height: 80vh;
-    background-color:white;
+    background-color:grey;
 }
 .heading{  
-    color:darkgrey;
+    color:lightgreen;
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
