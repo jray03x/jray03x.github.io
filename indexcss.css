@@ -5,8 +5,11 @@ body{
     background-attachment: fixed;
     position: relative;
     min-height: 80vh;
-    background-color:grey;
+    /* Gradient background */
+    background: linear-gradient(to right, grey, black, grey);
 }
+
+
 .heading{  
     color:lightgreen;
     max-width: 400px;
@@ -17,12 +20,26 @@ body{
     border-radius: 0px; /* Make the heading square */
 }
 .login{
-    background-color: grey;
+    background: linear-gradient(to right, black , white , black);
     text-align: center;
     font-size: 20px;
     color:darkred;
     font-style: Bolder;
-    border-radius: 0px; /* Make the login box square */
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Add a smooth edge */
+    border-radius: 5px; /* Make the login box rounded */
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.2); /* Make the shadow more visible */
+    display: inline-block; /* Make the box fit to the content */
+    padding: 5px; /* Add some space around the text */
+    width: auto; /* Adjust the width automatically */
+    position: absolute; /* Position the element */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Compensate for element dimensions */
 }
-/* Other styles remain the same */
+.nav_1{
+    position: absolute; /* Position the element */
+    bottom: 0; /* Position at the bottom */
+    left: 0; /* Start from the left */
+    width: 100%; /* Take the full width */
+    display: flex; /* Make the children align in a row */
+    justify-content: space-around; /* Distribute items evenly */
+}
