@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Randomness Celebration</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Add your favicon here -->
+    <link rel="stylesheet" type="text/css" href="homepage.css">
+</head>
+
+<body>
+	<div class="navbar">
+  	   <a href="#home">Home</a>
+  	   <a href="#contact">Contact Us</a>
+	</div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="excel.html">Excel</a>
+        <a href="life_advice.html">Life Advice</a>
+        <a href="coding.html">Coding</a>
+    </div>
+    <div class="main">
+        <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
+        <h2>Welcome to the Randomness Celebration!</h2>
+        <p>This homepage is a delightful mix of serendipity and curiosity. Explore our diverse articles on topics ranging from Excel wizardry to life advice and coding adventures. Each click is an invitation to a new world, a fresh perspective, and unexpected
+            ideas.</p>
+        <button onclick="getRandomFact()">Get a new random fact</button>
+        <div class="random-fact" id="randomFact">
+            Did you know? Bananas are technically berries, while strawberries are not!
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Randomness Celebration. All rights reserved.</p>
+    </footer>
+<script src="homepage.js"></script>
+
+</body>
+
+
+</html>
