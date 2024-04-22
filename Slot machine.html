@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Image Spinner</title>
+    <style>
+        .numberBox {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            display: inline-block;
+        }
+        #spinButton {
+            padding: 10px 20px;
+            font-size: 1.5em;
+        }
+        #spinCounter {
+            margin: 20px;
+            font-size: 1.5em;
+        }
+        #jackpotMessage {
+            margin: 20px;
+            font-size: 2em;
+            color: red;
+            display: none;
+        }
+        #numberBoxes {
+            text-align: center;
+        }
+        #probabilityForm {
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div id="spinCounter">Spin Counter: 0</div>
+    <div id="numberBoxes">
+        <div class="numberBox" id="box1"><img src="" alt="-"></div>
+        <div class="numberBox" id="box2"><img src="" alt="-"></div>
+        <div class="numberBox" id="box3"><img src="" alt="-"></div>
+        <div class="numberBox" id="box4"><img src="" alt="-"></div>
+        <div class="numberBox" id="box5"><img src="" alt="-"></div>
+    </div>
+    <button id="spinButton">Spin Images</button>
+    <div id="jackpotMessage">JACKPOT!!!</div>
+    <form id="probabilityForm">
+        <label for="twoSame">Probability of 2 same numbers:</label>
+        <input type="number" id="twoSame" name="twoSame" min="0" max="100">
+        <label for="threeSame">Probability of 3 same numbers:</label>
+        <input type="number" id="threeSame" name="threeSame" min="0" max="100">
+        <label for="fourSame">Probability of 4 same numbers:</label>
+        <input type="number" id="fourSame" name="fourSame" min="0" max="100">
+        <label for="fiveSame">Probability of 5 same numbers:</label>
+        <input type="number" id="fiveSame" name="fiveSame" min="0" max="100">
+    </form>
+
+    <script>
+        let clickCount = 0;
+        let images = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg', 'image6.jpg', 'image7.jpg', 'image8.jpg', 'image9.jpg', 'image10.jpg'];
+
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+
+            while (0 !== currentIndex) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+
+        function spinImages() {
+            clickCount++;
+
+            let num = Math.floor(Math.random() * 10);
+
+            let twoSame = document.getElementById('twoSame').value;
+            let threeSame = document.getElementById('threeSame').value;
+            let fourSame = document.getElementById('fourSame').value;
+            let fiveSame = document.getElementById('fiveSame').value;
+
+            let sameNumbers = Math.random() * 100;
+            let sameCount = 1;
+            if (sameNumbers <= twoSame) {
+                sameCount = 2;
+            } else if (sameNumbers <= threeSame) {
+                sameCount = 3;
+            } else if (sameNumbers <= fourSame) {
+                sameCount = 4;
+            } else if (sameNumbers <= fiveSame) {
+                sameCount = 5;
+            }
+
+            let boxes = shuffle([1, 2, 3, 4, 5]);
+
+            for (let i = 0; i < 5; i++) {
+                let box = document.getElementById('box' + boxes[i]);
+                let intervalId = setInterval(function() {
+                    box.firstChild.src = images[Math.floor(Math.random() * 10)];
+                    box.firstChild.alt = Math.floor(Math.random() * 10);
+                }, 100);
+
+                setTimeout(function() {
+                    clearInterval(intervalId);
+                    if (i < sameCount) {
+                        box.firstChild.src = images[num];
+                        box.firstChild.alt = num;
+                    } else {
+                        let randomNum = Math.floor(Math.random() * 10);
+                        box.firstChild.src = images[randomNum];
+                        box.firstChild.alt = randomNum;
+                    }
+                }, 1500 + 500 * i);
+            }
+
+            document.getElementById('spinCounter').textContent = `Spin Counter: ${clickCount}`;
+
+            if (sameCount === 5) {
+                setTimeout(function() {
+                    document.getElementById('jackpotMessage').style.display = 'block';
+                }, 1500 + 500 * 4);
+            } else {
+                document.getElementById('jackpotMessage').style.display = 'none';
+            }
+
+            document.getElementById('spinButton').disabled = true;
+            setTimeout(function() {
+                document.getElementById('spinButton').disabled = false;
+            }, 1500 + 500 * 4);
+        }
+
+        document.getElementById('spinButton').addEventListener('click', spinImages);
+
+        function updateMaxValues() {
+            let twoSame = document.getElementById('twoSame');
+            let threeSame = document.getElementById('threeSame');
+            let fourSame = document.getElementById('fourSame');
+            let fiveSame = document.getElementById('fiveSame');
+
+            let total = 100 - Number(threeSame.value) - Number(fourSame.value) - Number(fiveSame.value);
+            twoSame.max = total > 0 ? total : 0;
+
+            total = 100 - Number(twoSame.value) - Number(fourSame.value) - Number(fiveSame.value);
+            threeSame.max = total > 0 ? total : 0;
+
+            total = 100 - Number(twoSame.value) - Number(threeSame.value) - Number(fiveSame.value);
+            fourSame.max = total > 0 ? total : 0;
+
+            total = 100 - Number(twoSame.value) - Number(threeSame.value) - Number(fourSame.value);
+            fiveSame.max = total > 0 ? total : 0;
+
+            let sum = Number(twoSame.value) + Number(threeSame.value) + Number(fourSame.value) + Number(fiveSame.value);
+            if (sum > 100) {
+                alert('The total probability cannot exceed 100%. Please adjust the values.');
+                twoSame.value = 25;
+                threeSame.value = 25;
+                fourSame.value = 25;
+                fiveSame.value = 25;
+            }
+        }
+
+        document.getElementById('twoSame').addEventListener('input', updateMaxValues);
+        document.getElementById('threeSame').addEventListener('input', updateMaxValues);
+        document.getElementById('fourSame').addEventListener('input', updateMaxValues);
+        document.getElementById('fiveSame').addEventListener('input', updateMaxValues);
+    </script>
+</body>
+</html>
